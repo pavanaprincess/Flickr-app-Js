@@ -1,0 +1,73 @@
+<!--
+     Author:    Build Rise Shine with Nyros (BRS) 
+     Created:   11.05.2022 
+     Library / Component: Home page
+     Description: Main page for the website
+     (c) Copyright by BRS with Nyros. 
+-->
+<!DOCTYPE html>
+<html ng-app="taskImg">
+
+<head>
+    <title>Flickr App</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/main_controller.js"></script>
+    <script type="text/javascript" src="lib/jQuery.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <meta charset="utf-8">
+</head>
+
+<body ng-controller="MainController">
+
+
+    <div class="header-mg">
+        <div class="container container-new">
+            <span class="mg-1"><u id="logo">
+					FlickrApp
+				</u></span>
+            <div id="main">
+                <a href="index.html" class="ml-5">Home</a>
+                <a href="about.html">About</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container container-new-2">
+        <h1 class="text-center">.
+        </h1>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">#</span>
+                    <input type="text" class="form-control" ng-model="tags" placeholder="Search for images" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <button type="button" ng-click="searchImg()" class="btn btn-primary" style="background: black !important; width: 100%">Go</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" ng-repeat="item in img">
+                <div class="boxShadowClass">
+                    <div class="img-block">
+                        <img src="{{ImgUrl(item)}}" alt="" class="zoom ">
+                        <a href="{{ImgUrl(item)}}" data-href="{{ImgUrl(item)}}" download="image.jpg" onclick='forcedownload(this)'>
+                            <span class="mdi mdi-arrow-down-bold-circle-outline" id="mdi"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <!-- pagination -->
+</body>
+
+</html>
